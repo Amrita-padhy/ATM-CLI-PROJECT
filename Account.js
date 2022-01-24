@@ -17,7 +17,7 @@ module.exports = class Account {
     }
     async #load() {
         this.#balance = parseFloat(await FileSystem.read(this.filepath))
-        console.log(this.#balance);
+       
 
     }
     async withdraw(amount) {

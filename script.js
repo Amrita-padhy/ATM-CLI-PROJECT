@@ -1,10 +1,10 @@
 /*1- ask for account
-2-if account does not exist then ask to create an account
-3-ask what they want to do
-4-execute command
-  a-view
-  b-withdraw
-  c-deposite*/
+// 2-if account does not exist then ask to create an account
+// 3-ask what they want to do
+// 4-execute command
+a-view
+b-withdraw
+c-deposite*/
 
 
 //ACCOUNTS
@@ -12,9 +12,11 @@ const Account = require("./Account")
 const commandLine = require("./commandLine")
 
 async function main(){
+  //ask for account
   try{
     const accountName = await commandLine.ask(
       "which account would you like to access?")
+      //we find the account wheather it is created or not.
     const account = await Account.find(accountName)
     if (account == null) account = await promptCreateAccount(accountName)
     if (account !== null) await promptTask(account)
@@ -26,7 +28,7 @@ async function main(){
 
   
 
-
+//if there is an account then ask what would you like to do
 
 async function promptCreateAccount(accountName) {
   const response = await commandLine.ask(
